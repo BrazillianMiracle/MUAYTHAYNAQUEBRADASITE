@@ -1,0 +1,576 @@
+/* Variáveis CSS (Cores da Bandeira da Tailândia + Ouro) */
+:root {
+    --color-red: #A51931;    /* Vermelho Tailândia */
+    --color-white: #F4F5F0;  /* Branco Tailândia */
+    --color-blue: #2B2A4E;   /* Azul Tailândia */
+    --color-gold: #FFC72C;   /* Amarelo Ouro (Rodapé) */
+    --color-whatsapp: #25D366; /* Verde WhatsApp */
+    --font-primary: 'Arial', sans-serif;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-white);
+    color: var(--color-blue);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h3 {
+    font-size: 2.5em;
+    color: var(--color-red);
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 3px solid var(--color-gold);
+    padding-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.section-description {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    color: var(--color-blue);
+    max-width: 800px;
+    margin: 0px auto 40px auto;
+}
+
+/* ---------------------------------- */
+/* NAVEGAÇÃO E HERO BANNER */
+/* ---------------------------------- */
+
+#navbar {
+    background-color: rgba(43, 42, 78, 0.95); /* Azul com transparência */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px); /* Efeito avançado de desfoque */
+    transition: background-color 0.3s ease;
+}
+
+#navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    color: var(--color-white);
+    font-size: 1.8em;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    color: var(--color-gold);
+    background-color: var(--color-red);
+    transform: scale(1.05); /* Efeito sutil */
+}
+
+/* Hero Banner */
+.hero-banner {
+    height: 100vh;
+    background-image: linear-gradient(rgba(43, 42, 78, 0.5), rgba(43, 42, 78, 0.5)), url('images/1.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--color-white);
+    /* Efeito de iluminação constante (Advanced CSS - Filter) */
+    filter: brightness(1.1);
+    animation: pulseLight 10s infinite alternate;
+}
+
+@keyframes pulseLight {
+    0% { filter: brightness(1.1); }
+    100% { filter: brightness(1.2); }
+}
+
+.hero-content h2 {
+    font-size: 4em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    border-bottom: 3px solid var(--color-red);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+
+/* ---------------------------------- */
+/* LINKS DE CONTATO (Instagram/WhatsApp) */
+/* ---------------------------------- */
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 0;
+    background-color: var(--color-red);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-link {
+    text-decoration: none;
+    color: var(--color-white);
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 50px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.social-link:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.instagram-link {
+    background-color: var(--color-blue);
+    border: 2px solid var(--color-gold);
+}
+
+.instagram-link:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram Gradient */
+    border-color: var(--color-white);
+}
+
+.whatsapp-link {
+    background-color: var(--color-whatsapp);
+    border: 2px solid var(--color-white);
+}
+
+.whatsapp-link:hover {
+    background-color: #128C7E; /* WhatsApp Darker */
+    border-color: var(--color-gold);
+}
+
+
+/* ---------------------------------- */
+/* SEÇÃO 1: TORNEIO */
+/* ---------------------------------- */
+
+.tournament-section {
+    padding: 60px 0;
+    background-color: var(--color-white);
+}
+
+.gallery {
+    display: grid;
+    /* Grid Avançado: Layout Responsivo com Repetição Automática */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05) rotate(1deg); /* Efeito 3D sutil */
+    box-shadow: 0 15px 25px rgba(43, 42, 78, 0.3);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s;
+}
+
+.gallery-item figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(43, 42, 78, 0.8); /* Azul com transparência */
+    color: var(--color-white);
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9em;
+    /* Efeito de hover: legenda some/aparece */
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.gallery-item:hover figcaption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Modal (Lightbox) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    animation: zoomIn 0.6s; /* JavaScript Avançado: Efeito de Zoom */
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.1);}
+    to {transform: scale(1);}
+}
+
+#modal-caption {
+    margin: 15px auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: var(--color-white);
+    padding: 10px 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: var(--color-white);
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--color-red);
+    text-decoration: none;
+    transform: rotate(90deg);
+}
+
+/* ---------------------------------- */
+/* SEÇÃO 2: NOSSA HISTÓRIA (Carrossel Avançado) */
+/* ---------------------------------- */
+
+.history-section {
+    padding: 60px 0;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+}
+
+.history-section h3 {
+    color: var(--color-white);
+    border-bottom-color: var(--color-red);
+}
+
+.history-section .section-description {
+    color: var(--color-white);
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 40px auto;
+    border: 5px solid var(--color-red);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Curva de animação profissional */
+    transform: translateX(0);
+}
+
+.carousel-item {
+    min-width: 100%;
+    flex-shrink: 0;
+    text-align: center;
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-item figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(165, 25, 49, 0.9); /* Vermelho com transparência */
+    color: var(--color-white);
+    padding: 15px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Botões do Carrossel */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: var(--color-white);
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(43, 42, 78, 0.6);
+    border: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(255, 199, 44, 0.8);
+}
+
+
+/* ---------------------------------- */
+/* SEÇÃO 3: CONQUISTAS */
+/* ---------------------------------- */
+
+.achievements-section {
+    padding: 60px 0;
+    background-color: var(--color-white);
+}
+
+.achievement-grid {
+    display: grid;
+    /* Grid Avançado: Colunas com Gap */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.achievement-item {
+    text-align: center;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-blue);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+.achievement-item:hover {
+    box-shadow: 0 12px 25px rgba(165, 25, 49, 0.2);
+    transform: translateY(-5px);
+    border-color: var(--color-red);
+}
+
+.achievement-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    /* Efeito de cor ao passar o mouse */
+    filter: grayscale(10%);
+    transition: filter 0.4s;
+}
+
+.achievement-item:hover img {
+    filter: grayscale(0%);
+}
+
+.achievement-item figcaption {
+    padding: 15px 10px;
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--color-blue);
+    background-color: var(--color-white);
+    border-top: 1px dashed var(--color-gold);
+}
+
+
+/* ---------------------------------- */
+/* BOTÃO FLUTUANTE (WHATSAPP) */
+/* ---------------------------------- */
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: var(--color-whatsapp);
+    color: var(--color-white);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    /* Efeito de pulsação (Advanced CSS - Keyframes) */
+    animation: pulse 1.5s infinite;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    animation: none;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+
+/* ---------------------------------- */
+/* RODAPÉ (FOOTER) */
+/* ---------------------------------- */
+
+.footer {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    padding: 30px 0;
+    text-align: center;
+    border-top: 5px solid var(--color-gold); /* Amarelo ouro predominante */
+    /* Efeito sutil de background */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.footer .tagline {
+    font-size: 1.2em;
+    font-weight: 800;
+    color: var(--color-gold);
+    margin: 10px 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.footer-social a {
+    color: var(--color-white);
+    font-size: 1.5em;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--color-gold);
+    transform: scale(1.2);
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Simplificação para mobile */
+    }
+    .hero-content h2 {
+        font-size: 3em;
+    }
+    .contact-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .social-link {
+        width: 80%;
+        margin: 0 auto;
+        justify-content: center;
+    }
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+    }
+}
