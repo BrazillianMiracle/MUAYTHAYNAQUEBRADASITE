@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muay Thai na Quebrada - Força, Honra e Comunidade</title>
+    <title>Muay Thai na Quebrada - Força, Honra e Disciplina</title>
+    
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
 </head>
 <body>
 
-    <a href="https://wa.me/5562985642177?text=Quero%20fazer%20parte%20da%20Fam%C3%ADlia%20Muay%20Thai%20na%20Quebrada" class="whatsapp-float" target="_blank" title="Fale com a gente no WhatsApp">
+    <a href="https://wa.me/5562985642177?text=Quero%20fazer%20parte%20da%20Fam%C3%ADlia%20Muay%20Thai%20na%20Quebrada" class="whatsapp-float" target="_blank" aria-label="WhatsApp para Inscrição">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <header class="main-header">
-        <div class="header-content">
-            <h1 class="logo">MUAY THAI NA QUEBRADA</h1>
-            <button class="menu-toggle" aria-label="Abrir Menu">
+        <div class="header-content container">
+            <a href="#" class="logo">MUAY THAI NA QUEBRADA</a>
+            <button class="menu-toggle" aria-label="Abrir Menu de Navegação">
                 <i class="fas fa-bars"></i>
             </button>
-            <nav class="main-nav">
+            <nav class="main-nav" role="navigation">
                 <ul>
                     <li><a href="#torneio">1º Torneio</a></li>
                     <li><a href="#historia">Nossa História</a></li>
@@ -29,11 +32,13 @@
         </div>
     </header>
 
-    <main>
-        <section id="hero-banner" class="hero-banner">
+    <main id="main-content">
+        <section id="hero-banner" class="hero-banner" role="banner">
             <div class="hero-content">
-                <h2>MUAY THAI NA QUEBRADA</h2>
-                <p>Transformando vidas através da arte marcial tailandesa.</p>
+                <hgroup>
+                    <h2>MUAY THAI NA QUEBRADA</h2>
+                    <p>Transformando vidas através da arte marcial tailandesa. **Kruang Mai!**</p>
+                </hgroup>
                 <div class="social-links">
                     <a href="https://www.instagram.com/muaythainaquebra/" target="_blank" class="social-link instagram-link">
                         <i class="fab fa-instagram"></i> Instagram Oficial
@@ -43,206 +48,215 @@
                     </a>
                 </div>
             </div>
+            <img src="images/1.jpg" alt="Foto principal do time Muay Thai na Quebrada, iluminada e profissional" class="hero-img" loading="eager">
         </section>
 
         <section id="torneio" class="content-section fade-in">
-            <h2 class="section-title">🏆 1º Torneio Muay Thai na Quebrada</h2>
-            <p class="section-description">
-                Foi um evento de impacto inesquecível! Nosso primeiro torneio reuniu a comunidade e atletas de alto nível para celebrar a disciplina e o espírito de luta do Muay Thai. O torneio não foi apenas uma competição, mas uma prova da força e união da nossa família, mostrando que o talento floresce em qualquer lugar.
-            </p>
-            <div class="gallery grid-20">
-                <figure class="gallery-item">
-                    <img src="images/2.jpg" alt="Abertura do torneio com a bandeira da Tailândia">
-                    <figcaption>O início da jornada: Cerimônia de abertura.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/3.jpg" alt="Lutador aquecendo antes da luta">
-                    <figcaption>Foco total: Aquecimento e concentração.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/4.jpg" alt="Momento do *high kick* no ringue">
-                    <figcaption>Poder em movimento: O *high kick* preciso.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/5.jpg" alt="Juízes acompanhando a luta de perto">
-                    <figcaption>Decisão justa: Os juízes de olho na ação.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/6.jpg" alt="O público vibrando na arquibancada">
-                    <figcaption>A energia da quebrada: Torcida vibrante.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/7.jpg" alt="Atletas se cumprimentando após a luta">
-                    <figcaption>Respeito e Honra: O *wai* pós-combate.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/8.jpg" alt="Entrega de troféus e medalhas">
-                    <figcaption>Glória: O pódio e as conquistas.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/9.jpg" alt="Detalhe das bandagens do lutador">
-                    <figcaption>Pronto para a guerra: Detalhe das bandagens.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/10.jpg" alt="Lutador recebendo orientação do treinador">
-                    <figcaption>Estratégia no canto: O toque do *Kru*.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/11.jpg" alt="Foto artística do ringue iluminado">
-                    <figcaption>O Palco dos Sonhos: Ringue iluminado.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/12.jpg" alt="Atleta aplicando joelhada no clinch">
-                    <figcaption>Joelhada poderosa: Domínio no *clinch*.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/13.jpg" alt="Momento de impacto de um soco">
-                    <figcaption>O Golpe: Impacto capturado em *slow motion*.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/14.jpg" alt="Crianças assistindo e aprendendo">
-                    <figcaption>Inspiração: O futuro do Muay Thai.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/15.jpg" alt="Foto de grupo dos participantes">
-                    <figcaption>Família unida: Todos os competidores.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/16.jpg" alt="Vista aérea do público">
-                    <figcaption>Casa cheia: A comunidade presente.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/17.jpg" alt="Atleta em pose de celebração">
-                    <figcaption>Vitória merecida: A comemoração.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/18.jpg" alt="Detalhe do suor e esforço do atleta">
-                    <figcaption>A Garra: Esforço máximo em cada round.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/19.jpg" alt="Apresentação cultural de *Wai Kru*">
-                    <figcaption>Tradição: A beleza do *Wai Kru*.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/20.jpg" alt="Árbitro dando instruções aos lutadores">
-                    <figcaption>Regras e Ordem: A palavra do árbitro.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/21.jpg" alt="Foto de encerramento do evento">
-                    <figcaption>Encerramento: A promessa de mais torneios.</figcaption>
-                </figure>
+            <div class="container">
+                <h2 class="section-title">🏆 1º Torneio Muay Thai na Quebrada</h2>
+                <p class="section-description">
+                    Foi um evento de impacto inesquecível! Nosso primeiro torneio reuniu a comunidade e atletas de alto nível para celebrar a disciplina e o espírito de luta do Muay Thai. O torneio não foi apenas uma competição, mas uma prova da força e união da nossa família, mostrando que o talento floresce em qualquer lugar. A vibração no ginásio foi pura adrenalina, honrando as tradições do **Wai Kru** e a ferocidade do combate.
+                </p>
+                <div class="gallery grid-20" role="grid">
+                    <figure class="gallery-item">
+                        <img src="images/2.jpg" alt="Abertura do torneio com a bandeira da Tailândia" loading="lazy">
+                        <figcaption>O início da jornada: Cerimônia de abertura.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/3.jpg" alt="Lutador aquecendo antes da luta" loading="lazy">
+                        <figcaption>Foco total: Aquecimento e concentração.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/4.jpg" alt="Momento do high kick no ringue" loading="lazy">
+                        <figcaption>Poder em movimento: O *high kick* preciso.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/5.jpg" alt="Juízes acompanhando a luta de perto" loading="lazy">
+                        <figcaption>Decisão justa: Os juízes de olho na ação.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/6.jpg" alt="O público vibrando na arquibancada" loading="lazy">
+                        <figcaption>A energia da quebrada: Torcida vibrante.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/7.jpg" alt="Atletas se cumprimentando após a luta" loading="lazy">
+                        <figcaption>Respeito e Honra: O *wai* pós-combate.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/8.jpg" alt="Entrega de troféus e medalhas" loading="lazy">
+                        <figcaption>Glória: O pódio e as conquistas.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/9.jpg" alt="Detalhe das bandagens do lutador" loading="lazy">
+                        <figcaption>Pronto para a guerra: Detalhe das bandagens.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/10.jpg" alt="Lutador recebendo orientação do treinador" loading="lazy">
+                        <figcaption>Estratégia no canto: O toque do *Kru*.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/11.jpg" alt="Foto artística do ringue iluminado" loading="lazy">
+                        <figcaption>O Palco dos Sonhos: Ringue iluminado.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/12.jpg" alt="Atleta aplicando joelhada no clinch" loading="lazy">
+                        <figcaption>Joelhada poderosa: Domínio no *clinch*.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/13.jpg" alt="Momento de impacto de um soco" loading="lazy">
+                        <figcaption>O Golpe: Impacto capturado em *slow motion*.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/14.jpg" alt="Crianças assistindo e aprendendo" loading="lazy">
+                        <figcaption>Inspiração: O futuro do Muay Thai.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/15.jpg" alt="Foto de grupo dos participantes" loading="lazy">
+                        <figcaption>Família unida: Todos os competidores.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/16.jpg" alt="Vista aérea do público" loading="lazy">
+                        <figcaption>Casa cheia: A comunidade presente.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/17.jpg" alt="Atleta em pose de celebração" loading="lazy">
+                        <figcaption>Vitória merecida: A comemoração.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/18.jpg" alt="Detalhe do suor e esforço do atleta" loading="lazy">
+                        <figcaption>A Garra: Esforço máximo em cada round.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/19.jpg" alt="Apresentação cultural de Wai Kru" loading="lazy">
+                        <figcaption>Tradição: A beleza do *Wai Kru*.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/20.jpg" alt="Árbitro dando instruções aos lutadores" loading="lazy">
+                        <figcaption>Regras e Ordem: A palavra do árbitro.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/21.jpg" alt="Foto de encerramento do evento" loading="lazy">
+                        <figcaption>Encerramento: A promessa de mais torneios.</figcaption>
+                    </figure>
+                </div>
             </div>
         </section>
 
         <section id="historia" class="content-section alternate-bg fade-in">
-            <h2 class="section-title">📖 Nossa História: Raízes Fortes</h2>
-            <p class="section-description">
-                Nascemos do sonho de levar o Muay Thai para o coração da comunidade, provando que a disciplina e a filosofia desta arte marcial podem ser ferramentas poderosas de transformação social. Mais do que uma academia, somos um ponto de apoio, onde o respeito e a persistência são os nossos maiores ensinamentos. Junte-se a nós para construir seu próprio legado!
-            </p>
-            <div class="gallery">
-                <figure class="gallery-item">
-                    <img src="images/22.jpg" alt="Foto da primeira sede do projeto">
-                    <figcaption>O Começo: Nossa primeira sede humilde.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/23.jpg" alt="Treinador ensinando técnicas básicas">
-                    <figcaption>Os Fundamentos: A base de tudo.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/24.jpg" alt="Atletas treinando em grupo">
-                    <figcaption>União e Treino: A força do coletivo.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/25.jpg" alt="Alunos mais jovens se divertindo no treino">
-                    <figcaption>Alegria e Disciplina: Nossos futuros campeões.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/26.jpg" alt="Projeto social e distribuição de alimentos">
-                    <figcaption>Ação Social: Devolvendo à comunidade.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/27.jpg" alt="Treino ao ar livre na praça">
-                    <figcaption>Onde o treino acontece: Ao ar livre.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/28.jpg" alt="Foto inspiradora de um pôr do sol no treino">
-                    <figcaption>Persistência: Treinar até o sol se pôr.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/29.jpg" alt="Detalhe do logo da equipe">
-                    <figcaption>Nossa Marca: O símbolo da nossa luta.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/30.jpg" alt="O Kru (mestre) em destaque">
-                    <figcaption>Nosso Guia: O mestre e mentor.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/31.jpg" alt="Foto atual da academia reformada">
-                    <figcaption>Evolução: A academia hoje.</figcaption>
-                </figure>
+            <div class="container">
+                <h2 class="section-title">📖 Nossa História: Raízes Fortes</h2>
+                <p class="section-description">
+                    Nascemos do sonho de levar o Muay Thai para o coração da comunidade, provando que a disciplina e a filosofia desta arte marcial podem ser ferramentas poderosas de transformação social. Mais do que uma academia, somos um ponto de apoio, onde o respeito e a persistência são os nossos maiores ensinamentos. Começamos com pouco, mas com a **Mente do Tigre (Jit Suea)**. Junte-se a nós para construir seu próprio legado!
+                </p>
+                <div class="gallery" role="grid">
+                    <figure class="gallery-item">
+                        <img src="images/22.jpg" alt="Foto da primeira sede do projeto" loading="lazy">
+                        <figcaption>O Começo: Nossa primeira sede humilde.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/23.jpg" alt="Treinador ensinando técnicas básicas" loading="lazy">
+                        <figcaption>Os Fundamentos: A base de tudo.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/24.jpg" alt="Atletas treinando em grupo" loading="lazy">
+                        <figcaption>União e Treino: A força do coletivo.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/25.jpg" alt="Alunos mais jovens se divertindo no treino" loading="lazy">
+                        <figcaption>Alegria e Disciplina: Nossos futuros campeões.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/26.jpg" alt="Projeto social e distribuição de alimentos" loading="lazy">
+                        <figcaption>Ação Social: Devolvendo à comunidade.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/27.jpg" alt="Treino ao ar livre na praça" loading="lazy">
+                        <figcaption>Onde o treino acontece: Ao ar livre.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/28.jpg" alt="Foto inspiradora de um pôr do sol no treino" loading="lazy">
+                        <figcaption>Persistência: Treinar até o sol se pôr.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/29.jpg" alt="Detalhe do logo da equipe" loading="lazy">
+                        <figcaption>Nossa Marca: O símbolo da nossa luta.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/30.jpg" alt="O Kru (mestre) em destaque" loading="lazy">
+                        <figcaption>Nosso Guia: O mestre e mentor.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/31.jpg" alt="Foto atual da academia reformada" loading="lazy">
+                        <figcaption>Evolução: A academia hoje.</figcaption>
+                    </figure>
+                </div>
             </div>
         </section>
 
         <section id="conquistas" class="content-section fade-in">
-            <h2 class="section-title">🏅 Conquistas: Elevando o Nome</h2>
-            <p class="section-description">
-                Nossos atletas levam o nome do "Muay Thai na Quebrada" para os palcos mais importantes do esporte, conquistando títulos regionais e estaduais. Cada vitória é resultado da dedicação diária e do apoio mútuo da nossa família. Veja alguns dos nossos momentos de maior orgulho e celebração.
-            </p>
-            <div class="gallery">
-                <figure class="gallery-item">
-                    <img src="images/32.jpg" alt="Atleta com cinturão de campeão">
-                    <figcaption>Cinturão de Ouro: Campeão Estadual.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/33.jpg" alt="Time de competição em grupo">
-                    <figcaption>O Time Vencedor: Força em conjunto.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/34.jpg" alt="Atleta no pódio com medalha de ouro">
-                    <figcaption>Pódio Máximo: Ouro no campeonato.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/35.jpg" alt="Foto de jornal destacando a equipe">
-                    <figcaption>Reconhecimento: Destaque na mídia local.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/36.jpg" alt="A comemoração no vestiário">
-                    <figcaption>Bastidores: A alegria pós-vitória.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/37.jpg" alt="Atleta recebendo honraria da prefeitura">
-                    <figcaption>Homenagem: Reconhecimento da cidade.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/38.jpg" alt="Foto de diploma de graduação de um aluno">
-                    <figcaption>Graduação: Novos níveis de experiência.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/39.jpg" alt="Atleta em pose de luta com a camisa da Tailândia">
-                    <figcaption>Conexão Tailandesa: Honrando as raízes.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/40.jpg" alt="Foto da equipe em frente à bandeira">
-                    <figcaption>Orgulho: Nossa bandeira e nossa história.</figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/41.jpg" alt="Grupo de alunos exibindo as medalhas">
-                    <figcaption>Coleção de Vitórias: As medalhas da equipe.</figcaption>
-                </figure>
+            <div class="container">
+                <h2 class="section-title">🏅 Conquistas: Elevando o Nome</h2>
+                <p class="section-description">
+                    Nossos atletas levam o nome do "Muay Thai na Quebrada" para os palcos mais importantes do esporte, conquistando títulos regionais e estaduais. Cada vitória é resultado da dedicação diária e do apoio mútuo da nossa família. Representamos a força da nossa comunidade em cada campeonato. *Yod Muay!*
+                </p>
+                <div class="gallery" role="grid">
+                    <figure class="gallery-item">
+                        <img src="images/32.jpg" alt="Atleta com cinturão de campeão" loading="lazy">
+                        <figcaption>Cinturão de Ouro: Campeão Estadual.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/33.jpg" alt="Time de competição em grupo" loading="lazy">
+                        <figcaption>O Time Vencedor: Força em conjunto.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/34.jpg" alt="Atleta no pódio com medalha de ouro" loading="lazy">
+                        <figcaption>Pódio Máximo: Ouro no campeonato.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/35.jpg" alt="Foto de jornal destacando a equipe" loading="lazy">
+                        <figcaption>Reconhecimento: Destaque na mídia local.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/36.jpg" alt="A comemoração no vestiário" loading="lazy">
+                        <figcaption>Bastidores: A alegria pós-vitória.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/37.jpg" alt="Atleta recebendo honraria da prefeitura" loading="lazy">
+                        <figcaption>Homenagem: Reconhecimento da cidade.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/38.jpg" alt="Foto de diploma de graduação de um aluno" loading="lazy">
+                        <figcaption>Graduação: Novos níveis de experiência.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/39.jpg" alt="Atleta em pose de luta com a camisa da Tailândia" loading="lazy">
+                        <figcaption>Conexão Tailandesa: Honrando as raízes.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/40.jpg" alt="Foto da equipe em frente à bandeira" loading="lazy">
+                        <figcaption>Orgulho: Nossa bandeira e nossa história.</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="images/41.jpg" alt="Grupo de alunos exibindo as medalhas" loading="lazy">
+                        <figcaption>Coleção de Vitórias: As medalhas da equipe.</figcaption>
+                    </figure>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="main-footer">
-        <p class="footer-text">
-            &copy; <span id="current-year"></span> Muay Thai na Quebrada. Aos campeões e desconforto.
-        </p>
-        <div class="footer-links">
-            <a href="https://www.instagram.com/muaythainaquebra/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/5562985642177?text=Quero%20fazer%20parte%20da%20Familia%20Muay%20Thai%20na%20Quebrada" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <footer class="main-footer" role="contentinfo">
+        <div class="container footer-content">
+            <p class="footer-text">
+                &copy; <span id="current-year"></span> Muay Thai na Quebrada. Aos campeões e desconforto.
+            </p>
+            <div class="footer-links">
+                <a href="https://www.instagram.com/muaythainaquebra/" target="_blank" aria-label="Acesse nosso Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5562985642177?text=Quero%20fazer%20parte%20da%20Familia%20Muay%20Thai%20na%20Quebrada" target="_blank" aria-label="Fale conosco pelo WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

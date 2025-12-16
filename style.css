@@ -1,20 +1,21 @@
 /*
  * MUAY THAI NA QUEBRADA - STYLE.CSS
- * Design Responsivo e Avançado (Mobile-First) com cores da Tailândia
+ * Otimizado para Performance (Lazy Loading & Responsividade Mobile-First)
  */
 
 /* 1. VARIÁVEIS E ESTILOS GERAIS */
 :root {
     --red-thai: #da291c; /* Vermelho Tailândia */
-    --blue-thai: #1b1a53; /* Azul Tailândia (Escuro) */
-    --white-thai: #ffffff; /* Branco Tailândia */
+    --blue-thai: #1b1a53; /* Azul Tailândia (Escuro) - Cor Primária */
+    --white-thai: #ffffff;
     --gold-footer: #FFD700; /* Amarelo Ouro (Rodapé) */
     --green-whatsapp: #25D366;
     --secondary-color: var(--blue-thai);
     --text-color: #333;
-    --light-bg: #f2f2f2;
-    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    --transition-speed: 0.4s;
+    --light-bg: #f7f7f7; /* Fundo mais suave */
+    --box-shadow-light: 0 4px 8px rgba(0, 0, 0, 0.08);
+    --box-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.2);
+    --transition-speed: 0.5s;
 }
 
 * {
@@ -24,11 +25,19 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--white-thai);
     scroll-behavior: smooth;
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+}
+
+/* Container de Centralização */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 a {
@@ -44,7 +53,7 @@ a:hover {
 /* 2. CABEÇALHO E NAVEGAÇÃO RESPONSIVA */
 .main-header {
     background-color: var(--blue-thai);
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -54,17 +63,16 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 15px 0;
 }
 
 .logo {
     color: var(--white-thai);
-    font-size: 1.5em; /* Ajuste para caber em mobile */
-    font-weight: 800;
+    font-size: 1.5em; 
+    font-weight: 900;
     letter-spacing: 1px;
     text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Menu Mobile Toggle */
@@ -72,7 +80,7 @@ a:hover {
     background: none;
     border: none;
     color: var(--white-thai);
-    font-size: 1.5em;
+    font-size: 1.7em;
     cursor: pointer;
     display: block;
 }
@@ -104,10 +112,11 @@ a:hover {
 .main-nav a::after {
     content: '';
     position: absolute;
-    bottom: -5px;
-    left: 0;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
-    height: 3px;
+    height: 4px;
     background-color: var(--red-thai);
     transition: width var(--transition-speed) ease-in-out;
 }
@@ -116,7 +125,7 @@ a:hover {
     width: 100%;
 }
 
-/* Estilo do Menu Aberto (via JavaScript) */
+/* Estilo do Menu Aberto (via JavaScript) - Mobile */
 .main-nav.active {
     display: flex;
     position: absolute;
@@ -124,10 +133,15 @@ a:hover {
     left: 0;
     width: 100%;
     background-color: var(--blue-thai);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     flex-direction: column;
     padding: 10px 0;
-    border-top: 1px solid #3a3a70;
+    border-top: 2px solid var(--red-thai);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .main-nav.active ul {
@@ -136,24 +150,33 @@ a:hover {
 }
 
 .main-nav.active a {
-    display: block;
-    padding: 10px 20px;
+    padding: 12px 20px;
     text-align: center;
-    border-bottom: 1px solid #3a3a70;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.main-nav.active a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* 3. HERO BANNER */
 .hero-banner {
-    background-image: url('images/1.jpg'); /* Foto Principal */
-    background-size: cover;
-    background-position: center;
-    height: 80vh; /* Altura responsiva */
+    position: relative;
+    height: 85vh; 
     display: flex;
     align-items: flex-end;
     justify-content: center;
     text-align: center;
-    position: relative;
     overflow: hidden;
+}
+
+.hero-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 }
 
 /* Efeito de Overlay para Iluminar o Conteúdo */
@@ -164,35 +187,37 @@ a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.1));
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+    z-index: 2;
 }
 
 .hero-content {
     position: relative;
     z-index: 10;
     color: var(--white-thai);
-    padding-bottom: 50px;
+    padding: 0 20px 60px;
 }
 
 .hero-content h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    font-size: 2.5em;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
     color: var(--red-thai);
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .hero-content p {
-    font-size: 1em;
-    margin-bottom: 25px;
+    font-size: 1.1em;
+    margin-bottom: 30px;
     font-weight: 300;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 /* Links Sociais Abaixo do Hero */
 .social-links {
     display: flex;
-    flex-direction: column; /* Empilha em mobile */
-    justify-content: center;
+    flex-direction: column;
     gap: 15px;
     margin-top: 20px;
 }
@@ -200,16 +225,14 @@ a:hover {
 .social-link {
     display: inline-flex;
     align-items: center;
-    padding: 10px 20px;
+    justify-content: center;
+    padding: 12px 25px;
     border-radius: 50px;
     font-weight: bold;
+    font-size: 1em;
     transition: all var(--transition-speed);
     text-transform: uppercase;
-}
-
-.social-link i {
-    margin-right: 10px;
-    font-size: 1.2em;
+    min-width: 280px; /* Garante largura mínima profissional */
 }
 
 .instagram-link {
@@ -219,9 +242,8 @@ a:hover {
 }
 
 .instagram-link:hover {
-    background-color: var(--blue-thai);
-    border-color: var(--red-thai);
-    transform: scale(1.05);
+    background-color: #aa2014;
+    border-color: var(--gold-footer);
 }
 
 .whatsapp-link {
@@ -232,58 +254,52 @@ a:hover {
 
 .whatsapp-link:hover {
     background-color: #1daa54;
-    border-color: var(--red-thai);
-    transform: scale(1.05);
+    border-color: var(--gold-footer);
 }
 
-/* 4. BOTÃO FLUTUANTE WHATSAPP */
+/* 4. BOTÃO FLUTUANTE WHATSAPP (Aparência de Alto Nível) */
 .whatsapp-float {
     position: fixed;
-    width: 55px;
-    height: 55px;
-    bottom: 20px;
-    right: 20px;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
     background-color: var(--green-whatsapp);
     color: #fff;
     border-radius: 50%;
     text-align: center;
-    font-size: 28px;
-    line-height: 55px;
+    font-size: 30px;
+    line-height: 60px;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    transition: transform 0.4s ease, background-color 0.4s;
-    /* Animação Flutuante Avançada */
-    animation: bounce 2s infinite ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease;
+    animation: wave 2s infinite ease-in-out;
 }
 
 .whatsapp-float:hover {
-    background-color: #1daa54;
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
     animation: none;
 }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
+@keyframes wave {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
-/* 5. SEÇÕES DE CONTEÚDO E GALERIA */
+/* 5. SEÇÕES DE CONTEÚDO E GALERIA (Corrigido para Flickering) */
 .content-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 80px 0;
+    min-height: 50vh;
     opacity: 0;
     transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+/* Classe de animação para JavaScript */
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 1s ease-out, transform 1s ease-out; /* Transição mais suave e longa */
 }
 
 .alternate-bg {
@@ -291,55 +307,59 @@ a:hover {
 }
 
 .section-title {
-    font-size: 2em;
+    font-size: 2.2em;
     color: var(--blue-thai);
-    border-bottom: 4px solid var(--red-thai);
+    border-bottom: 5px solid var(--red-thai);
     display: inline-block;
     padding-bottom: 8px;
     margin-bottom: 20px;
-    font-weight: 700;
+    font-weight: 800;
+    text-transform: uppercase;
 }
 
 .section-description {
-    font-size: 1.1em;
+    font-size: 1.15em;
     margin-bottom: 50px;
     max-width: 900px;
     color: #555;
-    line-height: 1.8;
+    line-height: 1.7;
 }
 
-/* Galeria Responsiva com CSS Grid (Mobile-First) */
+/* Galeria Otimizada com CSS Grid */
 .gallery {
     display: grid;
-    /* Padrão para mobile: 1 ou 2 colunas */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 15px;
+    /* Padrão Mobile: 2 colunas */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 20px;
 }
 
-/* Grid para 20 fotos (pode ter mais colunas) */
+/* Grid para 20 fotos (Permite mais densidade em telas maiores) */
 .grid-20 {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
 .gallery-item {
     background-color: var(--white-thai);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s; /* Transição avançada */
+    /* Sombreamento suave para aparência 3D */
+    box-shadow: var(--box-shadow-light); 
+    /* Transição apenas para a sombra e opacidade (mais leve que transform) */
+    transition: box-shadow 0.4s ease, opacity 0.4s ease; 
     cursor: pointer;
 }
 
 .gallery-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--box-shadow-hover);
 }
 
 .gallery-item img {
     width: 100%;
-    height: 200px; /* Altura fixa para consistência em mobile */
-    object-fit: cover; /* Garante que a foto preencha sem cortar (essencial para responsividade) */
+    /* Altura consistente, garantindo que o layout não quebre. */
+    height: 200px; 
+    object-fit: cover; 
     display: block;
+    /* Transição suave de opacidade para o hover */
     transition: opacity 0.3s;
 }
 
@@ -348,40 +368,48 @@ a:hover {
 }
 
 figcaption {
-    padding: 12px;
+    padding: 15px 10px;
     font-size: 0.9em;
     color: #444;
     background-color: var(--light-bg);
     text-align: center;
-    font-weight: 500;
+    font-weight: 600;
+    min-height: 50px; /* Garante consistência de altura do rodapé da imagem */
 }
 
 /* 6. RODAPÉ (FOOTER) */
 .main-footer {
     background-color: var(--blue-thai);
     color: var(--white-thai);
-    padding: 30px 20px;
+    padding: 40px 0;
+    border-top: 10px solid var(--gold-footer); /* Amarelo Ouro de Alto Impacto */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    border-top: 8px solid var(--gold-footer); /* Amarelo Ouro Prodominante */
 }
 
 .footer-text {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-size: 1em;
+    font-weight: 300;
 }
 
 .footer-links a {
     color: var(--gold-footer);
-    font-size: 1.8em;
-    margin: 0 10px;
-    transition: color var(--transition-speed);
+    font-size: 2em;
+    margin: 0 15px;
+    transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
     color: var(--white-thai);
 }
 
-/* 7. MEDIA QUERIES (ADAPTAÇÃO PARA DESKTOP) */
+/* 7. MEDIA QUERIES (ADAPTAÇÃO PARA DESKTOP PROFISSIONAL) */
 @media (min-width: 768px) {
     /* Menu Desktop */
     .menu-toggle {
@@ -392,9 +420,12 @@ figcaption {
         display: block !important;
     }
 
-    /* Logo */
+    .header-content {
+        padding: 20px 0;
+    }
+
     .logo {
-        font-size: 1.8em;
+        font-size: 2em;
     }
 
     /* Hero Banner */
@@ -403,35 +434,47 @@ figcaption {
     }
 
     .hero-content p {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
     
     /* Links Sociais */
     .social-links {
-        flex-direction: row; /* Volta para linha em desktop */
+        flex-direction: row; 
+        gap: 25px;
+    }
+    .social-link {
+        min-width: 250px;
+    }
+
+    /* Seções */
+    .content-section {
+        padding: 100px 0;
+    }
+    .section-title {
+        font-size: 2.8em;
     }
 
     /* Galerias */
     .gallery {
-        grid-template-columns: repeat(3, 1fr); /* Padrão de 3 colunas em desktop */
-        gap: 25px;
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 30px;
     }
 
     .grid-20 {
-        grid-template-columns: repeat(4, 1fr); /* 4 colunas para a galeria maior */
+        grid-template-columns: repeat(4, 1fr); 
     }
 
     .gallery-item img {
-        height: 250px; /* Altura maior em desktop */
+        height: 280px; 
     }
     
-    /* Botão Flutuante */
-    .whatsapp-float {
-        width: 65px;
-        height: 65px;
-        font-size: 32px;
-        line-height: 65px;
-        bottom: 30px;
-        right: 30px;
+    /* Rodapé */
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    .footer-text {
+        margin-bottom: 0;
     }
 }
