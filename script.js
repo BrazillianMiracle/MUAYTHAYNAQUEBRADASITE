@@ -1,95 +1,70 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // ----------------------------------
-    // JAVASCRIPT AVANÇADO: STICKY NAVIGATION (Efeito de Scroll)
-    // ----------------------------------
-    const navbar = document.getElementById('navbar');
-    const heroSection = document.getElementById('home');
-    const heroHeight = heroSection ? heroSection.offsetHeight : 0;
+/*
+ * MUAY THAI NA QUEBRADA - SCRIPT.JS
+ * Adiciona Interatividade e Animações
+ */
 
-    window.addEventListener('scroll', () => {
-        // Altera o estilo da navbar ao rolar para baixo do hero banner
-        if (window.scrollY > heroHeight - 80) { // -80 para garantir o colapso após o hero
-            navbar.style.backgroundColor = 'var(--color-blue)';
-            navbar.style.padding = '10px 0';
+document.addEventListener('DOMContentLoaded', function() {
+
+    // 1. Funcionalidade do Menu Responsivo (Hamburger)
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+
+    menuToggle.addEventListener('click', function() {
+        // Alterna a classe 'active' para mostrar/esconder o menu
+        mainNav.classList.toggle('active');
+        
+        // Altera o ícone do menu (Abre/Fecha)
+        const icon = menuToggle.querySelector('i');
+        if (mainNav.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times'); // Ícone de fechar (X)
         } else {
-            navbar.style.backgroundColor = 'rgba(43, 42, 78, 0.95)';
-            navbar.style.padding = '15px 0';
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
         }
     });
 
-    // ----------------------------------
-    // JAVASCRIPT AVANÇADO: MODAL DE IMAGEM (Lightbox)
-    // ----------------------------------
-    const modal = document.getElementById('image-modal');
-    const modalImg = document.getElementById('modal-img');
-    const modalCaption = document.getElementById('modal-caption');
-    const closeBtn = document.getElementsByClassName('close-btn')[0];
+    // 2. Animação de Entrada ao Rolar (Intersection Observer API - Técnica Avançada)
+    const sections = document.querySelectorAll('.fade-in');
 
-    // Função para abrir o modal
-    window.openModal = (imgSrc, captionText) => {
-        modal.style.display = 'block';
-        modalImg.src = `images/${imgSrc}`;
-        modalCaption.innerHTML = captionText;
-        document.body.style.overflow = 'hidden'; // Evita scroll na página principal
-    }
+    const options = {
+        root: null, // viewport
+        rootMargin: '0px',
+        threshold: 0.15 // 15% da seção visível dispara a animação
+    };
 
-    // Função para fechar o modal
-    const closeModal = () => {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
+    const observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Adiciona a classe 'visible' para iniciar a transição CSS
+                entry.target.classList.add('visible');
+                // Para de observar depois de animar
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
 
-    // Eventos de fechar o modal
-    closeBtn.onclick = closeModal;
-    window.onclick = (event) => {
-        if (event.target == modal) {
-            closeModal();
-        }
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // 3. Atualização Automática do Ano no Rodapé (JavaScript Avançado)
+    const currentYear = new Date().getFullYear();
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = currentYear;
     }
     
-    document.onkeydown = (event) => {
-        if (event.key === 'Escape') {
-            closeModal();
-        }
-    }
-
-    // ----------------------------------
-    // JAVASCRIPT AVANÇADO: CARROSSEL (Nossa História)
-    // ----------------------------------
-    const carousel = document.getElementById('history-carousel');
-    const items = document.querySelectorAll('.carousel-item');
-    let currentIndex = 0;
-
-    // Garante que o carrossel exista antes de adicionar event listeners
-    if (carousel && items.length > 0) {
-        // Função para mover o carrossel
-        window.moveCarousel = (direction) => {
-            currentIndex += direction;
-            
-            // Lógica de loop infinito do carrossel
-            if (currentIndex < 0) {
-                currentIndex = items.length - 1;
-            } else if (currentIndex >= items.length) {
-                currentIndex = 0;
+    // 4. Fechar o menu ao clicar em um link (para experiência mobile)
+    const navLinks = document.querySelectorAll('.main-nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (mainNav.classList.contains('active')) {
+                mainNav.classList.remove('active');
+                // Restaura o ícone do menu
+                menuToggle.querySelector('i').classList.remove('fa-times');
+                menuToggle.querySelector('i').classList.add('fa-bars');
             }
-
-            const itemWidth = items[0].clientWidth;
-            carousel.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
-        }
-
-        // Auto-Play: Move o carrossel a cada 5 segundos
-        setInterval(() => {
-            window.moveCarousel(1);
-        }, 5000);
-
-        // Ajusta a posição ao redimensionar (Responsividade)
-        window.addEventListener('resize', () => {
-            const itemWidth = items[0].clientWidth;
-            carousel.style.transition = 'none'; // Desativa a transição durante o resize
-            carousel.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
-            setTimeout(() => {
-                carousel.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-            }, 50);
         });
-    }
+    });
 });

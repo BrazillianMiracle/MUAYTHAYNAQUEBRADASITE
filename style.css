@@ -1,14 +1,22 @@
-/* Variáveis CSS (Cores da Bandeira da Tailândia + Ouro) */
+/*
+ * MUAY THAI NA QUEBRADA - STYLE.CSS
+ * Design Responsivo e Avançado (Mobile-First) com cores da Tailândia
+ */
+
+/* 1. VARIÁVEIS E ESTILOS GERAIS */
 :root {
-    --color-red: #A51931;    /* Vermelho Tailândia */
-    --color-white: #F4F5F0;  /* Branco Tailândia */
-    --color-blue: #2B2A4E;   /* Azul Tailândia */
-    --color-gold: #FFC72C;   /* Amarelo Ouro (Rodapé) */
-    --color-whatsapp: #25D366; /* Verde WhatsApp */
-    --font-primary: 'Arial', sans-serif;
+    --red-thai: #da291c; /* Vermelho Tailândia */
+    --blue-thai: #1b1a53; /* Azul Tailândia (Escuro) */
+    --white-thai: #ffffff; /* Branco Tailândia */
+    --gold-footer: #FFD700; /* Amarelo Ouro (Rodapé) */
+    --green-whatsapp: #25D366;
+    --secondary-color: var(--blue-thai);
+    --text-color: #333;
+    --light-bg: #f2f2f2;
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.4s;
 }
 
-/* Reset Básico */
 * {
     margin: 0;
     padding: 0;
@@ -16,561 +24,414 @@
 }
 
 body {
-    font-family: var(--font-primary);
-    background-color: var(--color-white);
-    color: var(--color-blue);
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white-thai);
     scroll-behavior: smooth;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 0;
+a {
+    text-decoration: none;
+    color: var(--red-thai);
+    transition: color var(--transition-speed);
 }
 
-h3 {
-    font-size: 2.5em;
-    color: var(--color-red);
-    margin-bottom: 20px;
-    text-align: center;
-    border-bottom: 3px solid var(--color-gold);
-    padding-bottom: 10px;
-    letter-spacing: 1px;
+a:hover {
+    color: var(--blue-thai);
 }
 
-.section-description {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 1.1em;
-    color: var(--color-blue);
-    max-width: 800px;
-    margin: 0px auto 40px auto;
-}
-
-/* ---------------------------------- */
-/* NAVEGAÇÃO E HERO BANNER */
-/* ---------------------------------- */
-
-#navbar {
-    background-color: rgba(43, 42, 78, 0.95); /* Azul com transparência */
-    position: fixed;
-    width: 100%;
+/* 2. CABEÇALHO E NAVEGAÇÃO RESPONSIVA */
+.main-header {
+    background-color: var(--blue-thai);
+    box-shadow: var(--box-shadow);
+    position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px); /* Efeito avançado de desfoque */
-    transition: background-color 0.3s ease;
 }
 
-#navbar .container {
+.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 15px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo {
-    color: var(--color-white);
-    font-size: 1.8em;
-    font-weight: bold;
-    letter-spacing: 2px;
+    color: var(--white-thai);
+    font-size: 1.5em; /* Ajuste para caber em mobile */
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.nav-links {
+/* Menu Mobile Toggle */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: var(--white-thai);
+    font-size: 1.5em;
+    cursor: pointer;
+    display: block;
+}
+
+/* Menu de Navegação */
+.main-nav {
+    display: none;
+}
+
+.main-nav ul {
     list-style: none;
     display: flex;
+    gap: 25px;
 }
 
-.nav-links li {
-    margin-left: 30px;
-}
-
-.nav-links a {
-    color: var(--color-white);
-    text-decoration: none;
+.main-nav a {
+    color: var(--white-thai);
     font-weight: 600;
-    font-size: 1.1em;
-    padding: 5px 10px;
-    transition: color 0.3s, background-color 0.3s;
-    border-radius: 5px;
+    padding: 5px 0;
+    position: relative;
+    transition: color var(--transition-speed);
 }
 
-.nav-links a:hover {
-    color: var(--color-gold);
-    background-color: var(--color-red);
-    transform: scale(1.05); /* Efeito sutil */
+.main-nav a:hover {
+    color: var(--red-thai);
 }
 
-/* Hero Banner */
+/* Efeito Sublinhado Avançado (CSS) */
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--red-thai);
+    transition: width var(--transition-speed) ease-in-out;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* Estilo do Menu Aberto (via JavaScript) */
+.main-nav.active {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--blue-thai);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    padding: 10px 0;
+    border-top: 1px solid #3a3a70;
+}
+
+.main-nav.active ul {
+    flex-direction: column;
+    gap: 0;
+}
+
+.main-nav.active a {
+    display: block;
+    padding: 10px 20px;
+    text-align: center;
+    border-bottom: 1px solid #3a3a70;
+}
+
+/* 3. HERO BANNER */
 .hero-banner {
-    height: 100vh;
-    background-image: linear-gradient(rgba(43, 42, 78, 0.5), rgba(43, 42, 78, 0.5)), url('images/1.jpg');
+    background-image: url('images/1.jpg'); /* Foto Principal */
     background-size: cover;
     background-position: center;
+    height: 80vh; /* Altura responsiva */
     display: flex;
+    align-items: flex-end;
     justify-content: center;
-    align-items: center;
     text-align: center;
-    color: var(--color-white);
-    /* Efeito de iluminação constante (Advanced CSS - Filter) */
-    filter: brightness(1.1);
-    animation: pulseLight 10s infinite alternate;
+    position: relative;
+    overflow: hidden;
 }
 
-@keyframes pulseLight {
-    0% { filter: brightness(1.1); }
-    100% { filter: brightness(1.2); }
+/* Efeito de Overlay para Iluminar o Conteúdo */
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.1));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    color: var(--white-thai);
+    padding-bottom: 50px;
 }
 
 .hero-content h2 {
-    font-size: 4em;
+    font-size: 2em;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    color: var(--red-thai);
+    text-transform: uppercase;
 }
 
 .hero-content p {
-    font-size: 1.5em;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-    border-bottom: 3px solid var(--color-red);
-    display: inline-block;
-    padding-bottom: 5px;
+    font-size: 1em;
+    margin-bottom: 25px;
+    font-weight: 300;
 }
 
-
-/* ---------------------------------- */
-/* LINKS DE CONTATO (Instagram/WhatsApp) */
-/* ---------------------------------- */
-
-.contact-links {
+/* Links Sociais Abaixo do Hero */
+.social-links {
     display: flex;
+    flex-direction: column; /* Empilha em mobile */
     justify-content: center;
-    gap: 40px;
-    padding: 40px 0;
-    background-color: var(--color-red);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .social-link {
-    text-decoration: none;
-    color: var(--color-white);
-    font-size: 1.2em;
-    font-weight: bold;
-    padding: 15px 30px;
-    border-radius: 50px;
-    transition: transform 0.3s ease-in-out, background-color 0.3s;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all var(--transition-speed);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
-.social-link:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+.social-link i {
+    margin-right: 10px;
+    font-size: 1.2em;
 }
 
 .instagram-link {
-    background-color: var(--color-blue);
-    border: 2px solid var(--color-gold);
+    background-color: var(--red-thai);
+    color: var(--white-thai);
+    border: 2px solid var(--white-thai);
 }
 
 .instagram-link:hover {
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram Gradient */
-    border-color: var(--color-white);
+    background-color: var(--blue-thai);
+    border-color: var(--red-thai);
+    transform: scale(1.05);
 }
 
 .whatsapp-link {
-    background-color: var(--color-whatsapp);
-    border: 2px solid var(--color-white);
+    background-color: var(--green-whatsapp);
+    color: var(--white-thai);
+    border: 2px solid var(--white-thai);
 }
 
 .whatsapp-link:hover {
-    background-color: #128C7E; /* WhatsApp Darker */
-    border-color: var(--color-gold);
+    background-color: #1daa54;
+    border-color: var(--red-thai);
+    transform: scale(1.05);
 }
 
-
-/* ---------------------------------- */
-/* SEÇÃO 1: TORNEIO */
-/* ---------------------------------- */
-
-.tournament-section {
-    padding: 60px 0;
-    background-color: var(--color-white);
-}
-
-.gallery {
-    display: grid;
-    /* Grid Avançado: Layout Responsivo com Repetição Automática */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover {
-    transform: scale(1.05) rotate(1deg); /* Efeito 3D sutil */
-    box-shadow: 0 15px 25px rgba(43, 42, 78, 0.3);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-    transition: opacity 0.3s;
-}
-
-.gallery-item figcaption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(43, 42, 78, 0.8); /* Azul com transparência */
-    color: var(--color-white);
-    padding: 10px;
-    text-align: center;
-    font-size: 0.9em;
-    /* Efeito de hover: legenda some/aparece */
-    opacity: 0;
-    transform: translateY(100%);
-    transition: opacity 0.3s, transform 0.3s;
-}
-
-.gallery-item:hover figcaption {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Modal (Lightbox) */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
-    animation: fadeIn 0.5s;
-}
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    animation: zoomIn 0.6s; /* JavaScript Avançado: Efeito de Zoom */
-}
-
-@keyframes zoomIn {
-    from {transform: scale(0.1);}
-    to {transform: scale(1);}
-}
-
-#modal-caption {
-    margin: 15px auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: var(--color-white);
-    padding: 10px 0;
-}
-
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: var(--color-white);
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.close-btn:hover,
-.close-btn:focus {
-    color: var(--color-red);
-    text-decoration: none;
-    transform: rotate(90deg);
-}
-
-/* ---------------------------------- */
-/* SEÇÃO 2: NOSSA HISTÓRIA (Carrossel Avançado) */
-/* ---------------------------------- */
-
-.history-section {
-    padding: 60px 0;
-    background-color: var(--color-blue);
-    color: var(--color-white);
-}
-
-.history-section h3 {
-    color: var(--color-white);
-    border-bottom-color: var(--color-red);
-}
-
-.history-section .section-description {
-    color: var(--color-white);
-}
-
-.carousel-container {
-    position: relative;
-    overflow: hidden;
-    max-width: 900px;
-    margin: 40px auto;
-    border: 5px solid var(--color-red);
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-}
-
-.carousel {
-    display: flex;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Curva de animação profissional */
-    transform: translateX(0);
-}
-
-.carousel-item {
-    min-width: 100%;
-    flex-shrink: 0;
-    text-align: center;
-    position: relative;
-}
-
-.carousel-item img {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-    display: block;
-}
-
-.carousel-item figcaption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(165, 25, 49, 0.9); /* Vermelho com transparência */
-    color: var(--color-white);
-    padding: 15px;
-    font-style: italic;
-    font-weight: bold;
-}
-
-/* Botões do Carrossel */
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: var(--color-white);
-    font-weight: bold;
-    font-size: 20px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    background-color: rgba(43, 42, 78, 0.6);
-    border: none;
-}
-
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(255, 199, 44, 0.8);
-}
-
-
-/* ---------------------------------- */
-/* SEÇÃO 3: CONQUISTAS */
-/* ---------------------------------- */
-
-.achievements-section {
-    padding: 60px 0;
-    background-color: var(--color-white);
-}
-
-.achievement-grid {
-    display: grid;
-    /* Grid Avançado: Colunas com Gap */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 20px;
-}
-
-.achievement-item {
-    text-align: center;
-    background-color: var(--color-white);
-    border: 2px solid var(--color-blue);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease;
-}
-
-.achievement-item:hover {
-    box-shadow: 0 12px 25px rgba(165, 25, 49, 0.2);
-    transform: translateY(-5px);
-    border-color: var(--color-red);
-}
-
-.achievement-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    /* Efeito de cor ao passar o mouse */
-    filter: grayscale(10%);
-    transition: filter 0.4s;
-}
-
-.achievement-item:hover img {
-    filter: grayscale(0%);
-}
-
-.achievement-item figcaption {
-    padding: 15px 10px;
-    font-size: 1em;
-    font-weight: 600;
-    color: var(--color-blue);
-    background-color: var(--color-white);
-    border-top: 1px dashed var(--color-gold);
-}
-
-
-/* ---------------------------------- */
-/* BOTÃO FLUTUANTE (WHATSAPP) */
-/* ---------------------------------- */
-
+/* 4. BOTÃO FLUTUANTE WHATSAPP */
 .whatsapp-float {
     position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: var(--color-whatsapp);
-    color: var(--color-white);
+    width: 55px;
+    height: 55px;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--green-whatsapp);
+    color: #fff;
     border-radius: 50%;
     text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
-    z-index: 1500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    /* Efeito de pulsação (Advanced CSS - Keyframes) */
-    animation: pulse 1.5s infinite;
-    transition: transform 0.3s;
+    font-size: 28px;
+    line-height: 55px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease, background-color 0.4s;
+    /* Animação Flutuante Avançada */
+    animation: bounce 2s infinite ease-in-out;
 }
 
 .whatsapp-float:hover {
+    background-color: #1daa54;
     transform: scale(1.1);
     animation: none;
 }
 
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
     }
-    70% {
-        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    50% {
+        transform: translateY(-5px);
     }
 }
 
+/* 5. SEÇÕES DE CONTEÚDO E GALERIA */
+.content-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+}
 
-/* ---------------------------------- */
-/* RODAPÉ (FOOTER) */
-/* ---------------------------------- */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Transição mais suave e longa */
+}
 
-.footer {
-    background-color: var(--color-blue);
-    color: var(--color-white);
-    padding: 30px 0;
+.alternate-bg {
+    background-color: var(--light-bg);
+}
+
+.section-title {
+    font-size: 2em;
+    color: var(--blue-thai);
+    border-bottom: 4px solid var(--red-thai);
+    display: inline-block;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.section-description {
+    font-size: 1.1em;
+    margin-bottom: 50px;
+    max-width: 900px;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Galeria Responsiva com CSS Grid (Mobile-First) */
+.gallery {
+    display: grid;
+    /* Padrão para mobile: 1 ou 2 colunas */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 15px;
+}
+
+/* Grid para 20 fotos (pode ter mais colunas) */
+.grid-20 {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.gallery-item {
+    background-color: var(--white-thai);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s; /* Transição avançada */
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px; /* Altura fixa para consistência em mobile */
+    object-fit: cover; /* Garante que a foto preencha sem cortar (essencial para responsividade) */
+    display: block;
+    transition: opacity 0.3s;
+}
+
+.gallery-item:hover img {
+    opacity: 0.9;
+}
+
+figcaption {
+    padding: 12px;
+    font-size: 0.9em;
+    color: #444;
+    background-color: var(--light-bg);
     text-align: center;
-    border-top: 5px solid var(--color-gold); /* Amarelo ouro predominante */
-    /* Efeito sutil de background */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+    font-weight: 500;
 }
 
-.footer .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* 6. RODAPÉ (FOOTER) */
+.main-footer {
+    background-color: var(--blue-thai);
+    color: var(--white-thai);
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 8px solid var(--gold-footer); /* Amarelo Ouro Prodominante */
 }
 
-.footer p {
-    margin: 5px 0;
+.footer-text {
+    margin-bottom: 15px;
     font-size: 1em;
 }
 
-.footer .tagline {
-    font-size: 1.2em;
-    font-weight: 800;
-    color: var(--color-gold);
-    margin: 10px 0 20px 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+.footer-links a {
+    color: var(--gold-footer);
+    font-size: 1.8em;
+    margin: 0 10px;
+    transition: color var(--transition-speed);
 }
 
-.footer-social a {
-    color: var(--color-white);
-    font-size: 1.5em;
-    margin: 0 15px;
-    transition: color 0.3s;
+.footer-links a:hover {
+    color: var(--white-thai);
 }
 
-.footer-social a:hover {
-    color: var(--color-gold);
-    transform: scale(1.2);
-}
-
-/* Responsividade Básica */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Simplificação para mobile */
+/* 7. MEDIA QUERIES (ADAPTAÇÃO PARA DESKTOP) */
+@media (min-width: 768px) {
+    /* Menu Desktop */
+    .menu-toggle {
+        display: none;
     }
+
+    .main-nav {
+        display: block !important;
+    }
+
+    /* Logo */
+    .logo {
+        font-size: 1.8em;
+    }
+
+    /* Hero Banner */
     .hero-content h2 {
-        font-size: 3em;
+        font-size: 4em;
     }
-    .contact-links {
-        flex-direction: column;
-        gap: 20px;
+
+    .hero-content p {
+        font-size: 1.5em;
     }
-    .social-link {
-        width: 80%;
-        margin: 0 auto;
-        justify-content: center;
+    
+    /* Links Sociais */
+    .social-links {
+        flex-direction: row; /* Volta para linha em desktop */
     }
+
+    /* Galerias */
+    .gallery {
+        grid-template-columns: repeat(3, 1fr); /* Padrão de 3 colunas em desktop */
+        gap: 25px;
+    }
+
+    .grid-20 {
+        grid-template-columns: repeat(4, 1fr); /* 4 colunas para a galeria maior */
+    }
+
+    .gallery-item img {
+        height: 250px; /* Altura maior em desktop */
+    }
+    
+    /* Botão Flutuante */
     .whatsapp-float {
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 25px;
+        width: 65px;
+        height: 65px;
+        font-size: 32px;
+        line-height: 65px;
+        bottom: 30px;
+        right: 30px;
     }
 }
