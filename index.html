@@ -5,10 +5,426 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muay Thai na Quebrada - Força, Honra e Disciplina Tailandesa</title>
     
-    <link rel="stylesheet" href="style.css">
-    
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+
+    <style>
+        /* 1. VARIÁVEIS E ESTILOS GERAIS */
+        :root {
+            /* Cores da Bandeira da Tailândia */
+            --red-thai: #da291c; 
+            --blue-thai: #1b1a53; /* Azul Escuro Dominante */
+            --white-thai: #ffffff;
+            --gold-footer: #FFF9D6; /* Amarelo Ouro Claro Predominante Conforme Solicitado */
+            --gold-border: #FFD700; /* Tom Dourado vivo para detalhes de borda */
+            --green-whatsapp: #25D366;
+            
+            /* Estilos de Tipografia e Sombras */
+            --text-color: #333333;
+            --light-bg: #f7f7f7;
+            --box-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.06);
+            --box-shadow-hover: 0 12px 24px rgba(27, 26, 83, 0.18);
+            --transition-speed: 0.4s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Garante que padding e bordas não aumentem o tamanho total do elemento */
+        }
+
+        body {
+            font-family: 'Roboto', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white-thai);
+            scroll-behavior: smooth;
+            overflow-x: hidden; /* Evita rolagem lateral em dispositivos móveis */
+        }
+
+        /* Container de Centralização e Padding Padrão */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--red-thai);
+            transition: color var(--transition-speed);
+        }
+
+        a:hover {
+            color: var(--blue-thai);
+        }
+
+        /* 2. CABEÇALHO E NAVEGAÇÃO RESPONSIVA */
+        .main-header {
+            background-color: var(--blue-thai);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--red-thai);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            color: var(--white-thai);
+            font-size: 1.3em; /* Ajuste Mobile-First para evitar quebras em telas menores */
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0px var(--red-thai);
+        }
+
+        /* Menu Mobile Toggle e Navegação */
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: var(--white-thai);
+            font-size: 1.8em;
+            cursor: pointer;
+            display: block;
+        }
+
+        .main-nav { display: none; }
+        .main-nav ul { list-style: none; display: flex; gap: 25px; }
+
+        /* Menu Aberto (Mobile) */
+        .main-nav.active {
+            display: flex; 
+            position: absolute; 
+            top: 100%; 
+            left: 0; 
+            width: 100%; 
+            background-color: var(--blue-thai); 
+            flex-direction: column; 
+            padding: 10px 0; 
+            border-top: 2px solid var(--red-thai); 
+            animation: slideDown 0.3s ease-out;
+        }
+        @keyframes slideDown { 
+            from { transform: translateY(-20px); opacity: 0; } 
+            to { transform: translateY(0); opacity: 1; } 
+        }
+
+        /* 3. HERO BANNER COM DESTAQUE CLARO */
+        .hero-banner {
+            position: relative; 
+            height: 85vh; 
+            display: flex;
+            align-items: center; /* Alinhamento centralizado vertical profissional */
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-img {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            z-index: 1;
+            /* Mantém a foto perfeitamente clara, viva e iluminada */
+            filter: brightness(1.15) contrast(1.05); 
+        }
+
+        /* Overlay sutil para legibilidade impecável sem escurecer a foto */
+        .hero-banner::before {
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0; 
+            background: linear-gradient(rgba(255, 255, 255, 0.15), rgba(27, 26, 83, 0.25)); 
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative; 
+            z-index: 10; 
+            color: var(--blue-thai); 
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px;
+            max-width: 580px;
+            margin: 0 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-left: 6px solid var(--red-thai);
+        }
+
+        .hero-content h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 1.05rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        /* 4. BOTÕES E LINKS SOCIAIS PROFISSIONAIS */
+        .social-links { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 12px; 
+            margin-top: 22px; 
+        }
+        .social-link { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 12px 25px; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            font-size: 0.9em; 
+            transition: all var(--transition-speed); 
+            text-transform: uppercase; 
+            min-width: 100%; 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            letter-spacing: 0.5px;
+            gap: 10px;
+        }
+
+        .instagram-link { background: linear-gradient(45deg, #405DE6, #C13584, #FD1D1D); color: var(--white-thai); }
+        .instagram-link:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(193, 53, 132, 0.4); }
+
+        .whatsapp-link { background-color: var(--green-whatsapp); color: var(--white-thai); }
+        .whatsapp-link:hover { background-color: #20ba5a; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+
+        /* Botão Flutuante (Fixo, Estilo Alto Nível) */
+        .whatsapp-float {
+            position: fixed; 
+            width: 60px; 
+            height: 60px; 
+            bottom: 25px; 
+            right: 25px; 
+            background-color: var(--green-whatsapp); 
+            color: #fff; 
+            border-radius: 50%; 
+            text-align: center; 
+            font-size: 30px; 
+            line-height: 60px; 
+            z-index: 1000; 
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
+            transition: transform 0.4s ease; 
+            animation: wave 2s infinite ease-in-out;
+        }
+        .whatsapp-float:hover { 
+            transform: scale(1.1) rotate(5deg); 
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6); 
+            animation: none; 
+        }
+        @keyframes wave { 
+            0%, 100% { transform: scale(1); } 
+            50% { transform: scale(1.05); } 
+        }
+
+        /* 5. SEÇÕES DE CONTEÚDO E ANIMAÇÃO */
+        .content-section {
+            padding: 60px 0; 
+            min-height: 50vh;
+            /* Animação Inicial Oculta */
+            opacity: 0; 
+            transform: translateY(40px); 
+            transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* Classe Adicionada pelo JavaScript para Animar */
+        .fade-in.visible {
+            opacity: 1; 
+            transform: translateY(0);
+        }
+
+        .alternate-bg {
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            font-size: 1.7em; 
+            color: var(--blue-thai); 
+            border-bottom: 4px solid var(--red-thai); 
+            display: inline-block; 
+            padding-bottom: 8px; 
+            margin-bottom: 25px; 
+            font-weight: 800; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-description {
+            font-size: 1.05em; 
+            margin-bottom: 40px; 
+            max-width: 900px; 
+            color: #555; 
+            line-height: 1.7;
+        }
+
+        /* 6. GALERIA DE IMAGENS (SOLUÇÃO PARA ENCAIXE PERFEITO) */
+        .gallery {
+            display: grid;
+            /* Grid Padrão Mobile (Mobile-First de alta performance com duas colunas uniformes) */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 15px;
+        }
+
+        /* Ajuste para a Galeria de 20 Fotos (Maior densidade em desktop) */
+        .grid-20 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .gallery-item {
+            background-color: var(--white-thai);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow-light); 
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease, border-color 0.3s ease; 
+            cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .gallery-item:hover {
+            box-shadow: var(--box-shadow-hover);
+            transform: translateY(-5px);
+            border-color: var(--red-thai);
+        }
+
+        /* Wrapper para Definir Proporção 1:1 (Quadrado) */
+        .img-wrapper {
+            /* Hack CSS para manter a proporção 1:1 (largura = altura) */
+            width: 100%;
+            padding-bottom: 100%; 
+            position: relative;
+            background-color: var(--white-thai); /* Fundo branco para garantir que a foto apareça */
+            overflow: hidden;
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery-item img {
+            /* OTIMIZAÇÃO CRUCIAL: Modificado para cover para garantir visual premium preenchido */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .img-wrapper img {
+            transform: scale(1.06);
+        }
+
+        figcaption {
+            padding: 12px 8px;
+            font-size: 0.85em;
+            color: #333;
+            background-color: var(--white-thai);
+            text-align: center;
+            font-weight: 600;
+            min-height: 55px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* ==========================================================
+           CONFIGURAÇÃO MOBILE-FIRST: EXATAMENTE 8 FOTOS POR SEÇÃO
+           ========================================================== */
+        #torneio .photo-grid .gallery-item:nth-child(n + 9) {
+            display: none;
+        }
+
+        #historia .photo-grid .gallery-item:nth-child(n + 9) {
+            display: none;
+        }
+
+        #conquistas .photo-grid .gallery-item:nth-child(n + 9) {
+            display: none;
+        }
+
+        /* 7. RODAPÉ (FOOTER) - DESTAQUE AMARELO OURO CLARO PREDOMINANTE */
+        .main-footer {
+            background-color: var(--gold-footer); /* Amarelo Ouro Claro como cor predominante de fundo */
+            padding: 40px 0; 
+            border-top: 6px solid var(--gold-border); /* Linha superior dourada mais viva para acabamento */
+        }
+        .footer-content {
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            text-align: center; 
+            color: var(--blue-thai); /* Tom escuro para garantir contraste perfeito sobre o fundo claro */
+        }
+        .footer-text { 
+            margin-bottom: 20px; 
+            font-size: 1.05em; 
+            font-weight: 700; 
+            letter-spacing: 0.3px;
+        }
+        .footer-links a { 
+            color: var(--blue-thai); 
+            font-size: 2em; 
+            margin: 0 15px; 
+            transition: color 0.3s ease, transform 0.3s ease; 
+            display: inline-block;
+        }
+        .footer-links a:hover { 
+            color: var(--red-thai); 
+            transform: scale(1.15);
+        }
+
+        /* 8. MEDIA QUERIES (ADAPTAÇÃO PARA DESKTOP) */
+        @media (min-width: 768px) {
+            /* Oculta o toggle e mostra o menu principal no desktop */
+            .menu-toggle { display: none; }
+            .main-nav { display: block !important; }
+            .header-content { padding: 20px 0; }
+            .logo { font-size: 1.8em; }
+
+            .hero-content h2 { font-size: 3.2em; }
+            .hero-content p { font-size: 1.3em; }
+            
+            .social-links { flex-direction: row; gap: 20px; }
+            .social-link { min-width: 220px; }
+
+            .content-section { padding: 100px 0; }
+            .section-title { font-size: 2.6em; }
+
+            /* Layout da Galeria mais denso em Desktop */
+            .gallery { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+            .grid-20 { grid-template-columns: repeat(4, 1fr); }
+            
+            /* Footer em Layout Horizontal no Desktop */
+            .footer-content { flex-direction: row; justify-content: space-between; padding: 0 20px; }
+            .footer-text { margin-bottom: 0; }
+
+            /* No Desktop, as galerias mostram todas as fotos originais da marcação HTML */
+            #torneio .photo-grid .gallery-item:nth-child(n + 9),
+            #historia .photo-grid .gallery-item:nth-child(n + 9),
+            #conquistas .photo-grid .gallery-item:nth-child(n + 9) {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -98,7 +514,6 @@
                         <div class="img-wrapper"><img src="images/11.jpg" alt="Foto artística do ringue iluminado" loading="lazy"></div>
                         <figcaption>O Palco dos Sonhos: Ringue iluminado.</figcaption>
                     </figure>
-                
                 </div>
             </div>
         </section>
@@ -142,7 +557,7 @@
                         <div class="img-wrapper"><img src="images/29.jpg" alt="Detalhe do logo da equipe" loading="lazy"></div>
                         <figcaption>Nossa Marca: O símbolo da nossa luta.</figcaption>
                     </figure>
-                   
+                </div>
             </div>
         </section>
 
@@ -210,6 +625,69 @@
         </div>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // 1. Variáveis de Elementos DOM
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            const sections = document.querySelectorAll('.fade-in');
+
+            // 2. Função de Controle do Menu Hamburger
+            const toggleMenu = () => {
+                const isActive = mainNav.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                
+                if (isActive) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times'); 
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+                
+                menuToggle.setAttribute('aria-expanded', isActive);
+            };
+
+            menuToggle.addEventListener('click', toggleMenu);
+
+            // 3. Implementação da Animação de Entrada ao Rolar (Intersection Observer)
+            const observerOptions = {
+                root: null, 
+                rootMargin: '0px 0px -15% 0px', 
+                threshold: 0 
+            };
+
+            const sectionObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+
+            // 4. Atualização Dinâmica do Ano no Rodapé
+            const currentYear = new Date().getFullYear();
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = currentYear;
+            }
+            
+            // 5. Fechar o menu ao clicar em um link (Melhora a navegação em Mobile)
+            const navLinks = document.querySelectorAll('.main-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('active')) {
+                        toggleMenu(); 
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
